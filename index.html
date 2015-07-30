@@ -24,9 +24,13 @@ document.addEventListener("deviceready", function (){
 		
 		$("#btnLerCont").tap(function(){
 			navigator.contacts.find(["*"],function(contactos){
+				var elemento=$("#Listcontactos");
 					for(i=0;i<contactos.length;i++){
 							var contacto=contactos[i];
-							alert(contacto.displayName);
+//							alert(contacto.displayName);
+//elemento.append('<li>hola</li><br><li>mundo</li>'
+							elemento.append('<li>'+contacto.displayName+'</li>'					
+							);	
 						}
 				},function (){
 					alert("No se han podido leer los  contactos");
@@ -48,7 +52,9 @@ document.addEventListener("deviceready", function (){
     </div> 
     <div data-role="content">
     	<p>Agregando Contactos</p>
-        <input type="button" value="Agregar contactos" id="btnAgCont"  />        <input type="button" value="leerContac" id="btnLerCont"  />        
+        <input type="button" value="Agregar contactos" id="btnAgCont"  />        <input type="button" value="leerContac" id="btnLerCont"  />		        <ul data-role="listview" id="Listcontactos">
+        	
+        </ul>	
     </div>
     <div data-role="footer" data-position="fixed">
     	<p>Pie de aplicación</p>
